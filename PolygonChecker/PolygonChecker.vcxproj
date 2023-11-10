@@ -140,9 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="FourPointsFunctionality.c" />
     <ClCompile Include="triangleSolver.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FourPointsFunctionality.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="triangleSolver.h" />
   </ItemGroup>
