@@ -16,6 +16,7 @@ int main() {
 		switch (shapeChoice)
 		{
 		case 2:
+			printf_s("rectangle selected.\n");
 			FourPoints();
 			IsRectangle();
 
