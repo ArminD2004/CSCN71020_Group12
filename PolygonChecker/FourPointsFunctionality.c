@@ -48,3 +48,39 @@ void FourPoints() {
 	printf("The distance betwen P4 and P1 is %.2f\n", D4);
 
 }
+
+
+
+
+int IsRectangle(float distance[3]) {
+	// Check if opposite sides are equal in length (Diagonals are equal in length in a rectangle)
+	if (distance[0] == distance[2] && distance[1] == distance[3]) {
+		printf("Its a rectangle");
+	}
+	else {
+		pritf("Its not a rectangle");
+	}
+	if (IsRectangle(distance)) {
+		float perimeter = CalculatePerimeter(distance);
+		float area = CalculateArea(distance);
+
+		printf("Perimeter of the rectangle is %.2f\n", perimeter);
+		printf("Area of the rectangle is %.2f\n", area);
+	}
+	else {
+		printf("The points do not form a rectangle.\n");
+	}
+}
+
+// Function to calculate the perimeter of the rectangle
+float CalculatePerimeter(float distance[3]) {
+	return 2 * (distance[0] + distance[1]);
+}
+
+float CalculateArea(float distance[3]) {
+	return distance[0] * distance[1];
+}
+
+
+
+

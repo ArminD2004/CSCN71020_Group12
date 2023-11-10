@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-
+#include"FourPointsFunctionality.h"
 #include "main.h"
 #include "triangleSolver.h"
 
@@ -15,6 +15,11 @@ int main() {
 
 		switch (shapeChoice)
 		{
+		case 2:
+			FourPoints();
+			IsRectangle();
+
+			break;
 		case 1:
 			printf_s("Triangle selected.\n");
 			int triangleSides[3] = { 0, 0, 0 };
@@ -43,6 +48,7 @@ void printWelcome() {
 }
 
 int printShapeMenu() {
+	printf_s("2. Rectangle\n");
 	printf_s("1. Triangle\n");
 	printf_s("0. Exit\n");
 
