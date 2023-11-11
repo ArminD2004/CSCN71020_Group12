@@ -5,6 +5,9 @@
 #include "triangleSolver.h"
 
 int side = 0;
+bool FourPoints();
+
+
 
 int main() {
 	bool continueProgram = true;
@@ -18,8 +21,8 @@ int main() {
 		case 2:
 			printf_s("rectangle selected.\n");
 			FourPoints();
-			IsRectangle();
-
+			
+		
 			break;
 		case 1:
 			printf_s("Triangle selected.\n");

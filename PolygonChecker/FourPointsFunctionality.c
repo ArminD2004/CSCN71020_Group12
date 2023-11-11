@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "FourPointsFunctionality.h"
+#include <stdbool.h>
 //Create a program that allows the application to accept four points: Each point is an X Y pair. 
 //Check for user input validation to ensure proper values are inputted. 
 
@@ -11,7 +12,7 @@ struct POINTS {
 	float y;
 };
 
-void FourPoints() {
+bool FourPoints() {
 	struct POINTS point[4];
 	float distance[3];
 
@@ -47,40 +48,46 @@ void FourPoints() {
 	float D4 = sqrtf(pow(point[3].x - point[0].x, 2) + pow(point[3].y - point[0].y, 2));
 	printf("The distance betwen P4 and P1 is %.2f\n", D4);
 
-}
+	if (distance[0] == distance[2] && distance[1] == D4) {
+		printf("These points create a rectangle!\n");
 
+		printf("\n");
+		float perimeter = 2 * (distance[0] + distance[1]);
+		printf("The perimeter of the rectangle is: %.2f\n", perimeter);
 
+		float area = distance[0] * distance[1];
+		printf("The area of the rectangle is: %.2f\n", area);
 
-
-int IsRectangle(float distance[3]) {
-	// Check if opposite sides are equal in length (Diagonals are equal in length in a rectangle)
-	if (distance[0] == distance[2] && distance[1] == distance[3]) {
-		printf("Its a rectangle");
+		return 0;
 	}
 	else {
-		pritf("Its not a rectangle");
-	}
-	if (IsRectangle(distance)) {
-		float perimeter = CalculatePerimeter(distance);
-		float area = CalculateArea(distance);
-
-		printf("Perimeter of the rectangle is %.2f\n", perimeter);
-		printf("Area of the rectangle is %.2f\n", area);
-	}
-	else {
-		printf("The points do not form a rectangle.\n");
+		printf("These points do not create a rectangle.\n");
+		return 1;
 	}
 }
 
-// Function to calculate the perimeter of the rectangle
-float CalculatePerimeter(float distance[3]) {
-	return 2 * (distance[0] + distance[1]);
-}
-
-float CalculateArea(float distance[3]) {
-	return distance[0] * distance[1];
-}
-
+//// Check if opposite sides are equal in length (Diagonals are equal in length in a rectangle)
+//	
+//	if (IsRectangle(distance)) {
+//   float perimeter = CalculatePerimeter(distance);
+//	float area = CalculateArea(distance);
+//
+//		printf("Perimeter of the rectangle is %.2f\n", perimeter);
+//		printf("Area of the rectangle is %.2f\n", area);
+//	}
+//	else {
+//		printf("The points do not form a rectangle.\n");
+//	}
+//}
+//
+//// Function to calculate the perimeter of the rectangle
+//float CalculatePerimeter(float distance[3]) {
+//	return 2 * (distance[0] + distance[1]);
+//}
+//
+//float CalculateArea(float distance[3]) {
+//	return distance[0] * distance[1];
+//}
 
 
 
