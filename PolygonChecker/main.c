@@ -21,8 +21,7 @@ int main() {
 		case 2:
 			printf_s("rectangle selected.\n");
 			FourPoints();
-			
-		
+
 			break;
 		case 1:
 			printf_s("Triangle selected.\n");
@@ -31,7 +30,11 @@ int main() {
 			//printf_s("! %d\n", triangleSidesPtr[0]);
 			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			printf_s("%s\n", result);
+			
+			double* sideAngle = angleOfTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+			
 			break;
+
 		case 0:
 			continueProgram = false;
 			break;
@@ -52,9 +55,10 @@ void printWelcome() {
 }
 
 int printShapeMenu() {
-	printf_s("2. Rectangle\n");
-	printf_s("1. Triangle\n");
 	printf_s("0. Exit\n");
+	printf_s("1. Triangle\n");
+	printf_s("2. Rectangle\n");
+	
 
 	int shapeChoice;
 
@@ -65,10 +69,11 @@ int printShapeMenu() {
 }
 
 int* getTriangleSides(int* triangleSides) {
-	printf_s("Enter the three sides of the triangle: ");
+	printf_s("Enter the three sides of the triangle: \n");
 	for (int i = 0; i < 3; i++)
 	{
 		scanf_s("%d", &triangleSides[i]);
 	}
 	return triangleSides;
 }
+
