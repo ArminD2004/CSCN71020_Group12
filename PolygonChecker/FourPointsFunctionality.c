@@ -49,10 +49,14 @@ bool FourPoints() {
 
 
 		if (point[i].x < 0 || point[i].y < 0) {									//Section to check if the input values are > 0. 
-			printf("ERROR, values must be greater than 0.\n");
+			printf("ERROR, values must be greater than or equal to 0.\n");
 			exit(1);
 		}
 	}
+	return FourPointsData(point, distance);
+}
+
+FourPointsData(struct POINTS point[4], float distance[3]) {
 	printf("Your points are: ");
 
 
@@ -60,7 +64,7 @@ bool FourPoints() {
 		printf("P%d(%.2f,%.2f), ", i + 1, point[i].x, point[i].y);
 	}
 
-	
+	printf("\n");
 
 	if (IsRectangle(point, distance)) {
 		printf("\nThese points create a rectangle.\n");
@@ -78,6 +82,7 @@ bool FourPoints() {
 		return false;
 	}
 }
+
 
 //// Check if opposite sides are equal in length (Diagonals are equal in length in a rectangle)
 //	
