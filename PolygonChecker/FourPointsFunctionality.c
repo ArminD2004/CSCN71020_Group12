@@ -12,6 +12,26 @@ struct POINTS {
 	float y;
 };
 
+bool IsRectangle(struct POINTS point[4], float distance[3]) {
+	
+	
+	for (int i = 0; i < 3; i++) {
+		distance[i] = sqrtf(pow(point[i + 1].x - point[i].x, 2) + pow(point[i + 1].y - point[i].y, 2));
+		printf("The distance between P%d and P%d is %.2f\n", i + 1, i + 2, distance[i]);
+	}
+	float D4 = sqrtf(pow(point[3].x - point[0].x, 2) + pow(point[3].y - point[0].y, 2));
+	printf("The distance betwen P4 and P1 is %.2f\n", D4);
+
+	if (distance[0] == distance[2] && distance[1] == D4) {
+		return true;
+	}
+	
+	else {
+		return false; 
+	}
+
+}
+
 bool FourPoints() {
 	struct POINTS point[4];
 	float distance[3];
@@ -35,34 +55,27 @@ bool FourPoints() {
 	}
 	printf("Your points are: ");
 
+
 	for (int i = 0; i < 4; i++) {
 		printf("P%d(%.2f,%.2f), ", i + 1, point[i].x, point[i].y);
 	}
 
-	printf("\n");
+	
 
-	for (int i = 0; i < 3; i++) {
-		distance[i] = sqrtf(pow(point[i + 1].x - point[i].x, 2) + pow(point[i + 1].y - point[i].y, 2));
-		printf("The distance between P%d and P%d is %.2f\n", i + 1, i + 2, distance[i]);
-	}
-	float D4 = sqrtf(pow(point[3].x - point[0].x, 2) + pow(point[3].y - point[0].y, 2));
-	printf("The distance betwen P4 and P1 is %.2f\n", D4);
+	if (IsRectangle(point, distance)) {
+		printf("\nThese points create a rectangle.\n");
 
-	if (distance[0] == distance[2] && distance[1] == D4) {
-		printf("These points create a rectangle!\n");
-
-		printf("\n");
 		float perimeter = 2 * (distance[0] + distance[1]);
-		printf("The perimeter of the rectangle is: %.2f\n", perimeter);
+		printf("\nThe perimeter of the rectangle is: %.2f\n", perimeter);
 
 		float area = distance[0] * distance[1];
 		printf("The area of the rectangle is: %.2f\n", area);
 
-		return 0;
+		return true;
 	}
 	else {
 		printf("These points do not create a rectangle.\n");
-		return 1;
+		return false;
 	}
 }
 
