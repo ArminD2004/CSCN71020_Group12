@@ -9,6 +9,7 @@ bool FourPoints();
 
 
 
+
 int main() {
 	bool continueProgram = true;
 	while (continueProgram) {

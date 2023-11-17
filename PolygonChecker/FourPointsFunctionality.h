@@ -1,5 +1,7 @@
 #pragma once
 #include <stdbool.h>
 
+
 bool FourPoints();
-int* getTriangleSides(int* triangleSides);
+bool IsRectangle(struct POINTS point[4]);
+
