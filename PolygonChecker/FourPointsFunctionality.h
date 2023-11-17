@@ -3,5 +3,5 @@
 
 
 bool FourPoints();
-bool IsRectangle(struct POINTS point[4]);
 
+bool IsRectangle(struct POINTS point[4]);
