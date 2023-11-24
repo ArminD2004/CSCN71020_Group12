@@ -2,8 +2,9 @@
 #include <stdbool.h>
 #include<math.h> 
 #include "triangleSolver.h"
-
-#define DEGREES		57.29578
+#define PI	3.14159265358979323846
+//#define DEGREES		57.29578
+#define DEGREES		(180/ PI)
 
 char* analyzeTriangle(int side1, int side2, int side3) {
 	char* result = "";
@@ -32,15 +33,15 @@ char* analyzeTriangle(int side1, int side2, int side3) {
 }
 
 double* angleOfTriangle(double side1, double side2, double side3) {
-	
 
-	double triangleAngle[3];
-	
+
+	double triangleAngle[3] = { 0,0,0 };
+
 	triangleAngle[0] = DEGREES * acosf((side2 * side2 + side3 * side3 - side1 * side1) / (2 * side2 * side3));
 	triangleAngle[1] = DEGREES * acosf((side1 * side1 + side3 * side3 - side2 * side2) / (2 * side1 * side3));
 	triangleAngle[2] = DEGREES * acosf((side2 * side2 + side1 * side1 - side3 * side3) / (2 * side1 * side2));
 
-	printf("The first angle is %.3f.\nThe second angle is %.3f.\nThe third angle is %.3f.\n", triangleAngle[0], triangleAngle[1], triangleAngle[2]);
+	printf("The first angle is %.2f\nThe second angle is %.2f\nThe third angle is %.2f\n", triangleAngle[0], triangleAngle[1], triangleAngle[2]);
 	return triangleAngle;
 }
 
